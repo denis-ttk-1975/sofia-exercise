@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Упражнения на вычитание для Софьи</title>
+    <style>
+      body,
+      html {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        background-color: blanchedalmond;
+      }
+      h2 {
+        font-size: 3rem;
+        color: mediumseagreen;
+        margin: 0 0 20px;
+      }
+      .container {
+        width: 80%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        /* border: 1px solid #ccc; */
+        padding: 5px;
+        box-sizing: border-box;
+      }
+      .numbers {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+      .result {
+        font-size: 3rem;
+        margin-top: 20px;
+      }
+      button {
+        font-size: 2rem;
+        padding: 5px 10px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Упражнения на вычитание для Софьи</h2>
+      <div class="numbers" id="numbers"><span id="firstNumber"></span> - <span id="secondNumber"></span></div>
+      <button onclick="calculateResult()">Показать результат</button>
+      <div class="result" id="result"></div>
+      <button onclick="generateSample()">Новый пример</button>
+    </div>
+
+    <script>
+      let firstNumber, secondNumber;
+
+      function generateSample() {
+        // Генерация случайного трехзначного числа
+        firstNumber = Math.floor(Math.random() * 900) + 100;
+
+        // Генерация второго числа, которое меньше первого, но больше 11
+        secondNumber = Math.floor(Math.random() * (firstNumber - 12)) + 12;
+
+        // Вывод чисел на страницу
+        document.getElementById('firstNumber').textContent = firstNumber;
+        document.getElementById('secondNumber').textContent = secondNumber;
+        document.getElementById('result').textContent = 'Результат: ???';
+      }
+
+      generateSample();
+      // Функция для вычисления результата вычитания
+      function calculateResult() {
+        const result = firstNumber - secondNumber;
+        document.getElementById('result').textContent = `Результат: ${result}`;
+      }
+    </script>
+  </body>
+</html>
